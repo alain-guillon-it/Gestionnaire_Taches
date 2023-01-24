@@ -22,8 +22,8 @@
 
           <div id="erreur" class="alert alert-danger mt-2">
             <ul>
-              <% for (let i = 0; i < error["message"].length; i++) { %>
-              <li><%= error["message"][i] %></li>
+              <% for (const item of error.message) { %>
+              <li><%= item %></li>
               <% } %>
             </ul>
           </div>

@@ -27,15 +27,19 @@ const postNewTask = (req, res) => {
   };
 
   let errorMessage = [];
+  let i = 0;
 
   if (body.label == "") {
-    errorMessage[0] = "Le label est obligatoire";
+    errorMessage[i] = "Le label est obligatoire";
+    i++;
   }
   if (body.description == "") {
-    errorMessage[1] = "La description est obligatoire";
+    errorMessage[i] = "La description est obligatoire";
+    i++;
   }
   if (body.date == "") {
-    errorMessage[2] = "La date est obligatoire";
+    errorMessage[i] = "La date est obligatoire";
+    i++;
   }
 
   if (errorMessage.length > 0) {
