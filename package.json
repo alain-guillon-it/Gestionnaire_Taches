@@ -1,0 +1,30 @@
+{
+  "name": "gestionnaire_taches",
+  "version": "1.0.0",
+  "description": "Conception d'un gestionnaire de tâches en NodeJS",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alain-guillon-it/Gestionnaire_taches.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alain-guillon-it/Gestionnaire_taches/issues"
+  },
+  "homepage": "https://github.com/alain-guillon-it/Gestionnaire_taches#readme",
+  "devDependencies": {
+    "colors": "^1.4.0",
+    "morgan": "^1.10.0"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mongoose": "^6.8.4",
+    "serve-favicon": "^2.5.0"
+  }
+}
