@@ -36,7 +36,11 @@
                 <tr id=<%= task.id %>>
                   <td><%= task.label %></td>
                   <td><%= task.description %></td>
-                  <td><%= task.date %></td>
+                  <td><%= task.date.toLocaleDateString("fr-FR",{
+                    day: "numeric",
+                    month: "long",
+                    year: "numeric"
+                  }) %></td>
                   <td>false</td>
                   <td>
                     <button class="btn btn-danger btn-delete" data-id=<%= task.id %>>
