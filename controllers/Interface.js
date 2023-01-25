@@ -10,6 +10,7 @@ const getHome = (req, res) => {
     })
     .catch((err) => console.log(err));
 };
+
 const getNewTask = (req, res) => {
   res.status(200).render("new-task-form", {
     error: {

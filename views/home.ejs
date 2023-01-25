@@ -37,9 +37,9 @@
                   <td><%= task.label %></td>
                   <td><%= task.description %></td>
                   <td><%= task.date.toLocaleDateString("fr-FR",{
+                    weekday: "long",
                     day: "numeric",
                     month: "long",
-                    year: "numeric"
                   }) %></td>
                   <td>false</td>
                   <td>
