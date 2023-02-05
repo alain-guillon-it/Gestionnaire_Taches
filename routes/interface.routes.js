@@ -8,6 +8,6 @@ router
   .get(myController.getNewTask)
   .post(myController.postNewTask);
 
-router.route("/task/delete/:id").get(myController.getDeleteTask);
+router.get("/task/delete/:id", myController.getDeleteTask);
 
 module.exports = router;

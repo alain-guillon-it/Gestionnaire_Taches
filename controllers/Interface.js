@@ -24,7 +24,7 @@ const postNewTask = (req, res) => {
     label: req.body.label,
     description: req.body.description,
     date: req.body.dateTask,
-    status: false,
+    status: req.body.status == "on" ? true : false,
   };
 
   let errorMessage = [];

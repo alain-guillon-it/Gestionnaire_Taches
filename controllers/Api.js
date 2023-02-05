@@ -1,20 +1,16 @@
 const TaskModel = require("../models/TaskModel");
 
-const getApi = (req, res) => {
+const getApiRedirect = (req, res) => {
   res.redirect("/api/tasks");
 };
 
-const getApiTasks = (req, res) => {
+const getApiAllTasks = (req, res) => {
   TaskModel.find()
     .then((documents) => res.status(200).json(documents))
     .catch((err) => console.log(err));
 };
 
-const getApiTaskRedirect = (req, res) => {
-  res.redirect("/api/tasks");
-};
-
-const getApiTaskID = (req, res) => {
+const getApiOneTaskByID = (req, res) => {
   TaskModel.findById(req.params.id)
     .then((document) => {
       // console.log(document)
@@ -23,23 +19,12 @@ const getApiTaskID = (req, res) => {
     .catch((err) => console.log(err));
 };
 
-const getApiTaskDeleteID = (req, res) => {
-  TaskModel.deleteOne({ _id: req.params.id })
-    .exec()
-    .then(() => res.redirect("/api/tasks"))
-    .catch((err) => console.log(err));
-};
-
-const getApiTaskAdd = (req, res) => {
-  res.redirect("/api/task/add");
-};
-
-const postApiTaskAdd = (req, res) => {
+const postApiAddTask = (req, res) => {
   const newTask = new TaskModel({
     label: "Label de l'élément",
     date: "2022-10-01",
     description: "Description de l'élément",
-    status: false,
+    status: req.body.status == "on" ? true : false,
   });
   newTask
     .save()
@@ -49,12 +34,17 @@ const postApiTaskAdd = (req, res) => {
   console.log(newTask);
 };
 
+const deleteApiOneTaskByID = (req, res) => {
+  TaskModel.deleteOne({ _id: req.params.id })
+    .exec()
+    .then(() => res.redirect("/api/tasks"))
+    .catch((err) => console.log(err));
+};
+
 module.exports = {
-  getApi,
-  getApiTasks,
-  getApiTaskRedirect,
-  getApiTaskID,
-  getApiTaskDeleteID,
-  getApiTaskAdd,
-  postApiTaskAdd,
+  getApiRedirect,
+  getApiOneTaskByID,
+  getApiAllTasks,
+  postApiAddTask,
+  deleteApiOneTaskByID,
 };
